@@ -38,7 +38,10 @@ namespace DatingApp.API
 
             services.AddTransient<Seed>();
 
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(opt => 
+            {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             services.AddCors();
 
