@@ -17,6 +17,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http;
 using DatingApp.API.Helpers;
+using AutoMapper;
 
 namespace DatingApp.API
 {
@@ -44,6 +45,8 @@ namespace DatingApp.API
             });
 
             services.AddCors();
+
+            services.AddAutoMapper();
 
             services.AddScoped<IAuthRepository, AuthRepository>();
 
