@@ -160,6 +160,9 @@ csx/
 # Windows Store app package directory
 AppPackages/
 
+# Static files
+wwwroot/
+
 # Others
 *.[Cc]ache
 ClientBin/
