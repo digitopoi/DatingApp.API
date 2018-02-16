@@ -37,7 +37,7 @@ namespace DatingApp.API
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
             
             services.AddDbContext<DataContext>(x => x
-                .UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.IncludeIgnoredWarning)));
 
             services.AddTransient<Seed>();
@@ -76,7 +76,7 @@ namespace DatingApp.API
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
             
             services.AddDbContext<DataContext>(x => x
-                .UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
+                .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.IncludeIgnoredWarning)));
 
             services.AddTransient<Seed>();
@@ -141,7 +141,7 @@ namespace DatingApp.API
             app.UseMvc(routes => {
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
-                    defaults: new { controller = "Fallback", action = "Index" }
+                    defaults: new { controller = "FallbackController", action = "Index" }
                 );
             });
         }

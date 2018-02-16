@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DatingApp.API.Controllers
 {
-    public class Fallback : Controller
+    public class FallbackController : Controller
     {
         public IActionResult Index() 
         {
